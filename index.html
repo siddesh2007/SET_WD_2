@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Premium Stopwatch - Activity Timer</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="app-container glass">
+
+    <!-- Header -->
+    <header>
+      <div class="header-icon">⏱️</div>
+      <h1>Activity Timer</h1>
+      <p>Track your workout with precision</p>
+    </header>
+
+    <!-- Activity Mode Selector -->
+    <div class="mode-selector">
+      <button class="mode-btn active" data-mode="running">
+        <span class="mode-icon">🏃</span>   
+        <span class="mode-name">Running</span>
+      </button>
+      <button class="mode-btn" data-mode="cycling">
+        <span class="mode-icon">🚴</span>
+        <span class="mode-name">Cycling</span>
+      </button>
+      <button class="mode-btn" data-mode="walking">
+        <span class="mode-icon">🚶</span>
+        <span class="mode-name">Walking</span>
+      </button>
+      <button class="mode-btn" data-mode="jogging">
+        <span class="mode-icon">🏋️</span>
+        <span class="mode-name">Jogging</span>
+      </button>
+      <button class="mode-btn" data-mode="swimming">
+        <span class="mode-icon">🏊</span>
+        <span class="mode-name">Swimming</span>
+      </button>
+    </div>
+
+    <!-- Stopwatch Display -->
+    <div class="stopwatch-wrapper">
+      <div class="progress-ring">
+        <svg width="260" height="260">
+          <defs>
+            <linearGradient id="gradientStroke" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+              <stop offset="50%" style="stop-color:#764ba2;stop-opacity:1" />
+              <stop offset="100%" style="stop-color:#f093fb;stop-opacity:1" />
+            </linearGradient>
+          </defs>
+          <circle cx="130" cy="130" r="120"></circle>
+          <circle cx="130" cy="130" r="120" class="progress"></circle>
+        </svg>
+
+        <div class="time-display" id="display">
+          <span id="hours">00</span>:
+          <span id="minutes">00</span>:
+          <span id="seconds">00</span>
+          <div class="milliseconds" id="milliseconds">000</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls">
+      <button id="startBtn" class="btn primary">Start</button>
+      <button id="lapBtn" class="btn secondary" disabled>Lap</button>
+      <button id="resetBtn" class="btn danger" disabled>Reset</button>
+    </div>
+
+    <!-- Keyboard Hint -->
+    <div class="shortcuts">
+      <span>⎵ Space</span>
+      <span>L – Lap</span>
+      <span>R – Reset</span>
+    </div>
+
+    <!-- Lap List -->
+    <section class="laps">
+      <h2>Laps</h2>
+      <ul id="lapList"></ul>
+    </section>
+
+  </div>
+
+  <!-- Audio (optional) -->
+  <audio id="beepStart" src="https://assets.mixkit.co/sfx/preview/mixkit-modern-click-box-check-1120.mp3"></audio>
+  <audio id="beepLap" src="https://assets.mixkit.co/sfx/preview/mixkit-click-melodic-tone-1129.mp3"></audio>
+  <audio id="beepReset" src="https://assets.mixkit.co/sfx/preview/mixkit-unlock-game-notification-253.mp3"></audio>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+</body>
+</html>
